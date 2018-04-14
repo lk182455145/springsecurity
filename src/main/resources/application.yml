@@ -1,0 +1,39 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:sqlserver://172.22.30.1;databaseName=test
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: sa
+    password: business
+  jpa:
+    show-sql: true
+#   自动生成表
+    generate-ddl: true
+    database: SQL_SERVER
+    
+  redis:
+    # Redis数据库索引（默认为0）
+    database: 0
+    # Redis服务器地址
+    host: 127.0.0.1
+    # Redis服务器连接端口
+    port: 6379
+    # Redis服务器连接密码（默认为空）
+    password: 
+    # Redis连接池
+    pool:
+      # 最大连接数（使用负值表示没有限制）
+      max-active: 100
+      # 最大阻塞等待时间（使用负值表示没有限制）
+      max-wait: -1
+      # 最大空闲连接
+      max-idle: 10
+      # 最小空闲连接
+      min-idle: 5
+    # Redis连接超时时间（毫秒）
+    timeout: 100
+  session:
+    store-type: REDIS
+  resources:
+    static-locations: classpath:/static/
